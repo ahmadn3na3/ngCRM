@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EmployeesComponent } from './employees/employees.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 
@@ -9,7 +10,8 @@ import { EmployeesComponent } from './employees/employees.component';
     EmployeesComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MatTableModule,
   ],
   exports: [EmployeesComponent]
 })

@@ -1,11 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard/dashboard/dashboard.component';
+import { NavComponent } from './dashboard/nav/nav.component';
 
 const routes: Routes = [
   {
-    path:"",
-    component: DashboardComponent
+    path: "app",
+    component: NavComponent,
+    loadChildren: () => import('./dashboard/dashboard.module').then(mod => mod.DashboardModule)
+
+  },
+  {
+    path: '',
+    redirectTo: 'app',
+    pathMatch: 'full'
   }
 ];
 

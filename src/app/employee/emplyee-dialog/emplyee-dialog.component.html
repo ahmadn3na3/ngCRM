@@ -1,0 +1,110 @@
+<h3 mat-dialog-title>New Employee</h3>
+<form [formGroup]="employeeInput" (ngSubmit)="submit()">
+    <div mat-dialog-content class="dialog-wrapper">
+        <!--
+        'city', 'email', 'mgrId', 'notes', *'phone', 'photo', *'title', 'mobile', *'region', *'address',
+    *'country', 'entityId', *'hireDate', *'birthDate', 'extension', *'firstname', 'photoPath', *'postalCode',
+    *'titleOfCourtesy'
+    -->
+    <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <mat-select tabindex="1" formControlName="title">
+            <mat-option>None</mat-option>
+            <mat-option value="title1">Title 1</mat-option>
+            <mat-option value="title2">Title 2</mat-option>
+            <mat-option value="title3">Title 3</mat-option>
+        </mat-select>
+    </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>First name </mat-label>
+            <input matInput type="text" tabindex="20" formControlName="firstname" />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Last name </mat-label>
+            <input matInput type="text" tabindex="30" formControlName="lastname"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Phone </mat-label>
+            <input matInput type="text" tabindex="40" formControlName="phone"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput type="text" tabindex="41" formControlName="mobile"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="text" tabindex="42" formControlName="email" placeholder="example@domain.com"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Birth date </mat-label>
+            <input matInput [matDatepicker]="birthdatepicker" tabindex="50" formControlName="birthDate">
+            <mat-datepicker-toggle matSuffix [for]="birthdatepicker"></mat-datepicker-toggle>
+            <mat-datepicker #birthdatepicker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Hire date </mat-label>
+            <input matInput [matDatepicker]="picker" tabindex="60" formControlName="hireDate">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>City</mat-label>
+            <mat-select tabindex="69" formControlName="city" >
+                <mat-option>None</mat-option>
+                <mat-option value="City1">City 1</mat-option>
+                <mat-option value="City2">City 2</mat-option>
+                <mat-option value="City3">City 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Region</mat-label>
+            <mat-select tabindex="70" formControlName="region">
+                <mat-option>None</mat-option>
+                <mat-option value="Region1">Region 1</mat-option>
+                <mat-option value="Region2">Region 2</mat-option>
+                <mat-option value="Region3">Region 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Country</mat-label>
+            <mat-select tabindex="80" formControlName="country">
+                <mat-option>None</mat-option>
+                <mat-option value="Country1">Country 1</mat-option>
+                <mat-option value="Country2">Country 2</mat-option>
+                <mat-option value="Country3">Country 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" tabindex="90" formControlName="address" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Postal code</mat-label>
+            <input matInput type="text" tabindex="100" formControlName="postalCode" />
+        </mat-form-field>
+        <!--titleOfCourtesy-->
+        <mat-form-field appearance="outline">
+            <mat-label>Title of courtesy</mat-label>
+            <input matInput type="text" tabindex="110" formControlName="titleOfCourtesy" />
+        </mat-form-field>
+        <!--extension-->
+        <mat-form-field appearance="outline">
+            <mat-label>Extension</mat-label>
+            <input matInput type="text" tabindex="120" formControlName="extension"/>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Manager</mat-label>
+            <mat-select tabindex="80" formControlName="mgrId">
+                <mat-option>None</mat-option>
+                <mat-option value="1">Mgr 1</mat-option>
+                <mat-option value="2">Mgr 2</mat-option>
+                <mat-option value="3">Mgr 3</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div mat-dialog-actions>
+        <button mat-button type="button" (click)="cancel()">No Thanks</button>
+        <button mat-button type="submit" [disabled]="!employeeInput.valid && !employeeInput.pristine">Ok</button>
+    </div>
+</form>
